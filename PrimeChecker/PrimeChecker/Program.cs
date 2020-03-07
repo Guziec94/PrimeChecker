@@ -8,13 +8,15 @@ namespace PrimeChecker
         // 14484968830081
         // 8142915490464301747219
         // 6214962790459424018719016702779392029
+        // 451733950718173476224044011901550369947411906560037
 
         static void Main(string[] args)
         {
             Console.WriteLine("Podaj liczbę do sprawdzenia");
             string numberAsString = Console.ReadLine();
             BigInteger numberToCheck = BigInteger.Parse(numberAsString);
-            if (CheckIfNumberIsPrime(numberToCheck))
+
+            if (numberToCheck == 2 || MillerRabinAlgorithm.IsPrimeMillerRabin(numberToCheck))
             {
                 Console.WriteLine("Liczba jest liczbą pierwszą.");
             }
@@ -23,18 +25,6 @@ namespace PrimeChecker
                 Console.WriteLine("Liczba jest liczbą złożoną.");
             }
             Console.ReadKey();
-        }
-
-        static bool CheckIfNumberIsPrime(BigInteger numberToCheck)
-        {
-            if (numberToCheck.IsEven && numberToCheck > 2)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
         }
     }
 }
